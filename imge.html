@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>dropdown-list Javascript</title>
+<script type='text/javascript'>
+    window.onload=function(){
+    function setImage() {
+        var img = document.getElementById("image");
+        img.src = this.value;
+        return false;
+    }
+    document.getElementById("ImageList").onchange = setImage;
+    }
+    
+    </script>
+</head>
+
+
+
+
+
+
+
+
+</script-->
+
+
+<body>
+    <select id="ImageList">
+        <option value="images/Aden.jpg">Select city</option>
+       <option value="images/Aden.jpg">
+   Taiz</option>
+       <option value="images/gegypt3.jpg">
+   Aden</option>
+   </select>
+      
+   <p><img id="image" src="images/Egypt Pyramids Photos (21).jpg" /></p>
+
+</body>
+</html>
