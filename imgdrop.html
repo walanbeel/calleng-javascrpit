@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<style>
+		h2{
+			text-align:center;
+			color:#ccc ;
+		}
+		
+#div-img{
+  margin-left:10px;
+ /* border: 1px solid #ccc;*/
+  float: left;
+  width: 180px;
+}
+img {
+  width: 400px;
+  height: 300px;
+}
+#div-img img:hover {
+  border: 1px solid #777; 
+}
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+	</style>
+</head>
+<body>
+<h2 >Choose Your Countery</h2>
+<hr />
+Choose Countery:
+<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+  <option value="">choose countery</option>
+  <option value="Yemen">Yemen</option>
+  <option value=" Egypt"> Egypt</option>
+ 
+</select>
+<hr />
+Choose City:
+<select id="slct2" name="slct2" onchange="swapImage()">
+</select>
+<hr />
+<div id="div-img" style="width:100%"></div>
+<div class="desc"></div>
+
+<script>
+	function populate(s1,s2){
+		var s1 = document.getElementById(s1);
+		var s2 = document.getElementById(s2);
+		s2.innerHTML = "";
+		if(s1.value == "Yemen"){
+			var optionArray = "<option value='Sanaa'>Sanaa</option><option value='Taiz'>Taiz</option><option value='Abb'>Abb</option>";
+			s2.innerHTML=optionArray;
+			
+		} else if(s1.value == " Egypt"){
+			var optionArray2 ="<option value='Cairo'>Cairo</option><option value='Alexandria'>Alexandria</option><option value='giza'>giza</option>" ;
+			s2.innerHTML=optionArray2;
+		} 
+		/*for(var option in optionArray){
+			var pair = optionArray[option].split("|");
+			var newOption = document.createElement("option");
+			newOption.value = pair[0];
+			newOption.innerHTML = pair[1];
+			s2.options.add(newOption);
+		}*/
+	}
+	var drop = document.getElementById("slct2");
+		var divimg = document.getElementById("div-img");
+	
+			var sanaaImg = ["<img src=" + "img/sanaa3.jpg" + ">"+ "<img src=" + "img/sanaa2.jpg" + ">"+"<img src=" + "img/sanaa.jpg" + ">"];
+			var taizImg = ["<img src=" + "img/taiz2.jpg" + ">"+ "<img src=" + "img/taiz-Kahira.jpg" + ">"+ "<img src=" + "img/download.jpg" + ">"];
+			var ibbImg = ["<img src=" + "img/Abb.jpg" + ">" + "<img src=" + "img/Abb4.jpg" + ">" + "<img src=" + "img/Abb3.jpg" + ">"];
+	
+			var cairoImg = ["<img src=" + "img/cairo.jpg" + ">"+ "<img src=" + "img/cairo2.jpg" + ">"+  "<img src=" + "img/cairo3.jpg" + ">"];
+			var alexImg = ["<img src=" + "img/alexImg.jpg" + ">"+ "<img src=" + "img/Alexandria2.jpg" + ">"  + "<img src=" + "img/Alexandria.jpg"+">"];
+			var giazImg = ["<img src=" + "img/giazImg3.jpg" + ">"+ "<img src=" + "img/giazImg2.jpg" + ">" + "<img src=" + "img/giazImg.jpg" + ">"];
+	function swapImage(){	
+		if(drop.value=="Sanaa"){
+			divimg.innerHTML = sanaaImg;
+		}
+		else if(drop.value=="Taiz"){
+			divimg.innerHTML = taizImg;
+		}
+		else if(drop.value=="Abb"){
+			divimg.innerHTML = ibbImg;
+		}
+		else if(drop.value=="Cairo"){
+			divimg.innerHTML = cairoImg;
+		}
+		else if(drop.value=="Alexandria"){
+			divimg.innerHTML = alexImg;
+			}
+		else if(drop.value=="giza"){
+			divimg.innerHTML = giazImg;
+		}
+
+	}
+	
+//	slct2.addEventListener("change",swapImage());
+	</script>
+</body>
+</html>
